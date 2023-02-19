@@ -2,6 +2,8 @@
 
 use App\Enums\Role;
 use App\Http\Controllers\GradeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolFeeController;
 use App\Http\Controllers\StaffController;
@@ -19,11 +21,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', [PageController::class, 'index'])
+        ->name('dashboard');
+
+    Route::get('payment/{student}', [PaymentController::class, 'index'])
+        ->name('payment.index');
+
+    Route::post('payment/{student}', [PaymentController::class, 'store'])
+        ->name('payment.store');
+
+    Route::get('payment/{student}/create', [PaymentController::class, 'create'])
+        ->name('payment.create');
 
     Route::resource('student', StudentController::class)
         ->middleware('role:' . Role::ADMIN->value)
