@@ -4,7 +4,7 @@
 ## Aplikasi Pembayaran SPP
 
 ## Database Schema / Skema Database
-<img src="https://github.com/404NotFoundIndonesia/aplikasi-pembayaran-spp/blob/main/screenshots/database.png" alt="database schema">
+<img src="https://github.com/iqbaleff214/aplikasi-pembayaran-spp/blob/main/screenshots/database.png" alt="database schema">
 
 ## Installation / Instalasi
 Pastikan versi php Anda telah mendukung Laravel 10. Setelah repo ini diclone, bukalah CLI dan posisikan direktori aktif ke repo ini.
@@ -49,17 +49,17 @@ Untuk login aplikasi silakan masukkan username dan password berikut
 | Password | admin       |
 
 ## Screenshot
-<img src="https://github.com/404NotFoundIndonesia/aplikasi-pembayaran-spp/blob/main/screenshots/ss-1.png" alt="screenshot aplikasi">
+<img src="https://github.com/iqbaleff214/aplikasi-pembayaran-spp/blob/main/screenshots/ss-1.png" alt="screenshot aplikasi">
 
 <br>
 
-<img src="https://github.com/404NotFoundIndonesia/aplikasi-pembayaran-spp/blob/main/screenshots/ss-2.png" alt="screenshot aplikasi">
+<img src="https://github.com/iqbaleff214/aplikasi-pembayaran-spp/blob/main/screenshots/ss-2.png" alt="screenshot aplikasi">
 
 <br>
 
-<img src="https://github.com/404NotFoundIndonesia/aplikasi-pembayaran-spp/blob/main/screenshots/ss-3.png" alt="screenshot aplikasi">
+<img src="https://github.com/iqbaleff214/aplikasi-pembayaran-spp/blob/main/screenshots/ss-3.png" alt="screenshot aplikasi">
 
 
 ## License / Lisensi
 
-Berlisensi di bawah [MIT license](https://github.com/404NotFoundIndonesia/aplikasi-pembayaran-spp/blob/main/LICENSE).
+Berlisensi di bawah [MIT license](https://github.com/iqbaleff214/aplikasi-pembayaran-spp/blob/main/LICENSE).
