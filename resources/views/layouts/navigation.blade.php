@@ -16,6 +16,9 @@
                         {{ __('Dasbor') }}
                     </x-nav-link>
                     @if(auth()->user()->role == \App\Enums\Role::ADMIN->value)
+                        <x-nav-link :href="route('student.index')" :active="request()->routeIs('student.*')">
+                            {{ __('Siswa') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('staff.index')" :active="request()->routeIs('staff.*')">
                             {{ __('Petugas') }}
                         </x-nav-link>

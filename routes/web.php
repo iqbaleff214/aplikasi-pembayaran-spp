@@ -5,6 +5,7 @@ use App\Http\Controllers\GradeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolFeeController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,10 @@ Route::get('/', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+    Route::resource('student', StudentController::class)
+        ->middleware('role:' . Role::ADMIN->value)
+        ->except(['show']);
 
     Route::resource('grade', GradeController::class)
         ->middleware('role:' . Role::ADMIN->value)
