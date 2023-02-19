@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -31,15 +32,25 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function scopeSearch($query, $search)
+    {
+        return $query->when($search, function ($query, $find) {
+            return $query
+                ->where('name', 'LIKE', $find . '%')
+                ->orWhere('username', 'LIKE', '%' . $find . '%');
+        });
+    }
+
+    public function scopeRender($query, $search)
+    {
+        return $query
+            ->search($search)
+            ->where('role', Role::STAFF)
+            ->paginate(5)
+            ->appends([
+                'search' => $search,
+            ]);
+    }
 }

@@ -1,6 +1,9 @@
 <?php
 
+use App\Enums\Role;
+use App\Http\Controllers\GradeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +23,12 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::resource('grade', \App\Http\Controllers\GradeController::class)
-        ->middleware('role:' . \App\Enums\Role::ADMIN->value)
+    Route::resource('grade', GradeController::class)
+        ->middleware('role:' . Role::ADMIN->value)
+        ->except(['show']);
+
+    Route::resource('staff', StaffController::class)
+        ->middleware('role:' . Role::ADMIN->value)
         ->except(['show']);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
