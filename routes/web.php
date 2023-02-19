@@ -21,6 +21,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/student/login', [PageController::class, 'login'])->name('guest.login');
+Route::post('/student/login', [PageController::class, 'authentication'])->name('guest.auth');
+Route::post('/student/logout', [PageController::class, 'logout'])->name('guest.logout');
+Route::get('/student/{student}/history', [PageController::class, 'history'])->name('guest.history');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [PageController::class, 'index'])

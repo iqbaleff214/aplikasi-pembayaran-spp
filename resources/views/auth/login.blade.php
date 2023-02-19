@@ -34,6 +34,10 @@
 
         <div class="flex items-center justify-end mt-4">
 
+            <a href="{{ route('guest.login') }}"
+               class="inline-flex items-center ml-3 px-6 py-2 bg-gray-800 border border-transparent text-xs rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 transition ease-in-out duration-150">
+                {{ __('Siswa') }}
+            </a>
             <x-primary-button class="ml-3">
                 {{ __('Masuk') }}
             </x-primary-button>
