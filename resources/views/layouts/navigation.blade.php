@@ -22,6 +22,9 @@
                         <x-nav-link :href="route('grade.index')" :active="request()->routeIs('grade.*')">
                             {{ __('Kelas') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('fee.index')" :active="request()->routeIs('fee.*')">
+                            {{ __('SPP') }}
+                        </x-nav-link>
                     @endif
                 </div>
             </div>

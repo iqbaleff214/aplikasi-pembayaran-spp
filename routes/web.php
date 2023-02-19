@@ -3,6 +3,7 @@
 use App\Enums\Role;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SchoolFeeController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,10 @@ Route::middleware('auth')->group(function () {
         ->except(['show']);
 
     Route::resource('staff', StaffController::class)
+        ->middleware('role:' . Role::ADMIN->value)
+        ->except(['show']);
+
+    Route::resource('fee', SchoolFeeController::class)
         ->middleware('role:' . Role::ADMIN->value)
         ->except(['show']);
 
