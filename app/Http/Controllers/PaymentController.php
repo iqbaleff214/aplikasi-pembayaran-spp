@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Payment;
 use App\Models\Student;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class PaymentController extends Controller
@@ -20,6 +22,17 @@ class PaymentController extends Controller
             'student' => $student,
             'search' => $request->search,
         ]);
+    }
+
+    public function print(Request $request, Student $student): Response
+    {
+        $pdf = Pdf::loadView('pages.payment.print', [
+            'title' => 'Laporan Pembayaran SPP',
+            'student' => $student,
+            'payments' => Payment::where('nisn', $student->nisn)->get(),
+        ]);
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('laporan_spp_' . $student->nisn . '.pdf');
     }
 
     public function create(Student $student): View

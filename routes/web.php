@@ -34,6 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::get('payment/{student}', [PaymentController::class, 'index'])
         ->name('payment.index');
 
+    Route::get('payment/{student}/print', [PaymentController::class, 'print'])
+        ->name('payment.print');
+
     Route::post('payment/{student}', [PaymentController::class, 'store'])
         ->name('payment.store');
 
